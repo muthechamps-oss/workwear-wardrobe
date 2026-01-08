@@ -1,0 +1,402 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    padding: 30px;
+}
+
+h1 {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+h2 {
+    color: #2980b9;
+    margin-top: 30px;
+}
+
+h3 {
+    color: #2c3e50;
+}
+
+.section {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-left: 4px solid #3498db;
+}
+
+.input-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+select, input, button, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+button.secondary {
+    background-color: #7f8c8d;
+}
+
+button.secondary:hover {
+    background-color: #5d6c6c;
+}
+
+.recommendation-section {
+    display: none;
+}
+
+.outfit {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    border: 1px solid #eaeaea;
+}
+
+.outfit h3 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+
+.item-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.item {
+    background-color: #f8f9fa;
+    padding: 12px 15px;
+    border-radius: 6px;
+    flex: 1;
+    min-width: 150px;
+    border-left: 3px solid #3498db;
+}
+
+.item.owned {
+    border-left-color: #27ae60;
+}
+
+.item.missing {
+    border-left-color: #e74c3c;
+    background-color: #fee;
+}
+
+.item-category {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.item-details {
+    color: #7f8c8d;
+    font-size: 14px;
+}
+
+.outfit-rating {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #ddd;
+}
+
+.rating {
+    color: #f39c12;
+    font-weight: bold;
+}
+
+.inventory-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.inventory-item {
+    background-color: #e8f4fc;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #d1e7f5;
+    position: relative;
+}
+
+.delete-item {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.tips {
+    background-color: #fff8e1;
+    border-left: 4px solid #f1c40f;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 20px;
+}
+
+#resetBtn {
+    background-color: #e74c3c;
+    margin-top: 20px;
+}
+
+#resetBtn:hover {
+    background-color: #c0392b;
+}
+
+.tab-container {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.tab {
+    padding: 12px 24px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-weight: 600;
+    color: #7f8c8d;
+    border-bottom: 3px solid transparent;
+}
+
+.tab.active {
+    color: #3498db;
+    border-bottom: 3px solid #3498db;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.camera-simulator {
+    border: 2px dashed #3498db;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    background-color: #f8f9fa;
+    margin: 20px 0;
+}
+
+.camera-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.style-quiz {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.quiz-question {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.quiz-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.quiz-option {
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.quiz-option:hover {
+    border-color: #3498db;
+    background-color: #e8f4fc;
+}
+
+.quiz-option.selected {
+    border-color: #3498db;
+    background-color: #d1e7f5;
+    font-weight: 600;
+}
+
+.preference-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.preference-tag {
+    background-color: #3498db;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.shopping-links {
+    background-color: #e8f6f3;
+    border-left: 4px solid #27ae60;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 20px;
+}
+
+.shopping-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #d1e7f5;
+}
+
+.buy-button {
+    background-color: #27ae60;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.buy-button:hover {
+    background-color: #219653;
+}
+
+.ai-learning {
+    background-color: #f5e8ff;
+    border-left: 4px solid #9b59b6;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 20px;
+}
+
+.feedback-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.feedback-like {
+    background-color: #27ae60;
+    color: white;
+}
+
+.feedback-dislike {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.progress-bar {
+    height: 10px;
+    background-color: #ecf0f1;
+    border-radius: 5px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: #3498db;
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+.stats {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.stat-box {
+    flex: 1;
+    text-align: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.stat-number {
+    font-size: 24px;
+    font-weight: bold;
+    color: #3498db;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .input-section {
+        flex-direction: column;
+    }
+    
+    .stats {
+        flex-direction: column;
+    }
+}

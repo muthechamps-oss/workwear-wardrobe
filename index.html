@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workwear Wardrobe Assistant Pro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>👔 Workwear Wardrobe Assistant Pro</h1>
+        
+        <div class="tab-container">
+            <button class="tab active" data-tab="wardrobe">My Wardrobe</button>
+            <button class="tab" data-tab="style-quiz">Style Quiz</button>
+            <button class="tab" data-tab="recommendations">Recommendations</button>
+            <button class="tab" data-tab="ai-learning">AI Learning</button>
+        </div>
+        
+        <!-- Wardrobe Tab -->
+        <div class="tab-content active" id="wardrobe-tab">
+            <div class="section">
+                <h2>Add Items to Your Wardrobe</h2>
+                <p>Add your work clothes using the form below or upload photos of your items.</p>
+                
+                <div class="input-section">
+                    <div class="input-group">
+                        <label for="category">Category:</label>
+                        <select id="category">
+                            <option value="shirt">Shirt/Blouse</option>
+                            <option value="pants">Pants/Trousers</option>
+                            <option value="skirt">Skirt</option>
+                            <option value="dress">Dress</option>
+                            <option value="jacket">Jacket/Blazer</option>
+                            <option value="sweater">Sweater/Cardigan</option>
+                            <option value="shoes">Shoes</option>
+                            <option value="accessory">Accessory</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="color">Color:</label>
+                        <select id="color">
+                            <option value="black">Black</option>
+                            <option value="navy">Navy</option>
+                            <option value="gray">Gray</option>
+                            <option value="white">White</option>
+                            <option value="beige">Beige</option>
+                            <option value="blue">Blue</option>
+                            <option value="green">Green</option>
+                            <option value="red">Red</option>
+                            <option value="pattern">Pattern/Print</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="style">Style/Type:</label>
+                        <input type="text" id="style" placeholder="e.g., Button-down, Pencil Skirt">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="formality">Formality Level:</label>
+                        <select id="formality">
+                            <option value="casual">Casual</option>
+                            <option value="business-casual">Business Casual</option>
+                            <option value="professional">Professional</option>
+                            <option value="formal">Formal</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button id="addItemBtn">Add Item to My Wardrobe</button>
+                
+                <div class="camera-simulator">
+                    <div class="camera-icon">📷</div>
+                    <h3>Quick Camera Upload</h3>
+                    <p>Simulate uploading photos of your clothes. Select an item type below to add it automatically.</p>
+                    <div class="input-section">
+                        <div class="input-group">
+                            <label for="camera-item">Common Workwear Items:</label>
+                            <select id="camera-item">
+                                <option value="">Select an item to "upload"</option>
+                                <option value="white-button-down">White Button-Down Shirt</option>
+                                <option value="black-pants">Black Dress Pants</option>
+                                <option value="navy-blazer">Navy Blazer</option>
+                                <option value="black-pumps">Black Pumps</option>
+                                <option value="gray-cardigan">Gray Cardigan</option>
+                                <option value="pencil-skirt">Black Pencil Skirt</option>
+                                <option value="loafers">Brown Loafers</option>
+                                <option value="blue-dress">Blue Sheath Dress</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button id="cameraUploadBtn" class="secondary">Upload Selected Item</button>
+                    <p><small><em>Note: In a real app, this would use your camera to scan clothing items</em></small></p>
+                </div>
+                
+                <div id="inventoryContainer">
+                    <h3>My Current Wardrobe</h3>
+                    <div class="stats">
+                        <div class="stat-box">
+                            <div class="stat-number" id="totalItems">0</div>
+                            <div>Total Items</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number" id="outfitCount">0</div>
+                            <div>Possible Outfits</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number" id="styleScore">0%</div>
+                            <div>Style Match</div>
+                        </div>
+                    </div>
+                    <div id="inventoryList" class="inventory-list">
+                        <!-- Items will be added here -->
+                    </div>
+                    <p id="emptyInventory">No items added yet. Start by adding some workwear items you own.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Style Quiz Tab -->
+        <div class="tab-content" id="style-quiz-tab">
+            <div class="section">
+                <h2>Personal Style Quiz</h2>
+                <p>Help us understand your style preferences for better recommendations.</p>
+                
+                <div class="style-quiz">
+                    <div class="quiz-question">
+                        <h3>1. How would you describe your work style?</h3>
+                        <div class="quiz-options">
+                            <div class="quiz-option" data-value="classic">Classic & Timeless</div>
+                            <div class="quiz-option" data-value="modern">Modern & Trendy</div>
+                            <div class="quiz-option" data-value="minimalist">Minimalist</div>
+                            <div class="quiz-option" data-value="creative">Creative & Bold</div>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <h3>2. What colors do you feel most confident in?</h3>
+                        <div class="quiz-options">
+                            <div class="quiz-option" data-value="neutrals">Neutrals (black, white, gray)</div>
+                            <div class="quiz-option" data-value="jewel-tones">Jewel Tones</div>
+                            <div class="quiz-option" data-value="pastels">Pastels</div>
+                            <div class="quiz-option" data-value="mixed">Mix of everything</div>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <h3>3. How do you prefer your work clothes to fit?</h3>
+                        <div class="quiz-options">
+                            <div class="quiz-option" data-value="tailored">Tailored & Fitted</div>
+                            <div class="quiz-option" data-value="relaxed">Relaxed & Comfortable</div>
+                            <div class="quiz-option" data-value="balanced">Balanced Fit</div>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <h3>4. What's most important to you in workwear?</h3>
+                        <div class="quiz-options">
+                            <div class="quiz-option" data-value="comfort">Comfort</div>
+                            <div class="quiz-option" data-value="professional">Professional Appearance</div>
+                            <div class="quiz-option" data-value="versatility">Versatility</div>
+                            <div class="quiz-option" data-value="durability">Durability & Quality</div>
+                        </div>
+                    </div>
+                    
+                    <button id="submitQuizBtn">Save My Style Profile</button>
+                    
+                    <div class="ai-learning">
+                        <h3>Your Style Profile</h3>
+                        <div id="styleProfile">
+                            <p>Complete the quiz to see your style profile.</p>
+                        </div>
+                        <div class="preference-tags" id="preferenceTags">
+                            <!-- Style preferences will appear here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Recommendations Tab -->
+        <div class="tab-content" id="recommendations-tab">
+            <div class="section">
+                <h2>Get Outfit Recommendations</h2>
+                <p>Based on your wardrobe and style preferences, we'll suggest complete outfits.</p>
+                
+                <div class="input-section">
+                    <div class="input-group">
+                        <label for="occasion">Work Occasion:</label>
+                        <select id="occasion">
+                            <option value="meeting">Client Meeting / Formal</option>
+                            <option value="office">Regular Office Day</option>
+                            <option value="casual-friday">Casual Friday</option>
+                            <option value="presentation">Presentation / Speaking</option>
+                            <option value="interview">Job Interview</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="weather">Weather/Season:</label>
+                        <select id="weather">
+                            <option value="all-season">All Season</option>
+                            <option value="summer">Summer / Warm</option>
+                            <option value="winter">Winter / Cold</option>
+                            <option value="rainy">Rainy</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button id="recommendBtn">Get Outfit Recommendations</button>
+                
+                <div id="recommendationSection">
+                    <h3>Recommended Outfits</h3>
+                    <div id="recommendations">
+                        <!-- Outfits will be generated here -->
+                    </div>
+                    
+                    <div class="shopping-links" id="shoppingSection" style="display: none;">
+                        <h3>🛒 Complete Your Outfits</h3>
+                        <p>Here are items you could add to your wardrobe to create more outfit options:</p>
+                        <div id="shoppingList">
+                            <!-- Shopping items will appear here -->
+                        </div>
+                    </div>
+                    
+                    <div class="tips">
+                        <h3>💡 Wardrobe Tips</h3>
+                        <p id="wardrobeTips">Based on your current wardrobe, we recommend adding versatile basics like a white button-down shirt, black trousers, and neutral pumps to maximize your outfit combinations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- AI Learning Tab -->
+        <div class="tab-content" id="ai-learning-tab">
+            <div class="section">
+                <h2>AI Learning & Preferences</h2>
+                <p>The app learns from your feedback to provide better recommendations over time.</p>
+                
+                <div class="ai-learning">
+                    <h3>Your AI Style Assistant</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="aiProgress"></div>
+                    </div>
+                    <p>AI Learning Progress: <span id="aiProgressText">0%</span></p>
+                    
+                    <div id="aiInsights">
+                        <p>The AI is learning your preferences. Rate outfits to help it improve.</p>
+                    </div>
+                    
+                    <h4>Recently Rated Outfits:</h4>
+                    <div id="ratedOutfits">
+                        <!-- Rated outfits will appear here -->
+                    </div>
+                    
+                    <div class="stats">
+                        <div class="stat-box">
+                            <div class="stat-number" id="likedOutfits">0</div>
+                            <div>Outfits You Liked</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number" id="dislikedOutfits">0</div>
+                            <div>Outfits You Disliked</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number" id="aiAccuracy">0%</div>
+                            <div>AI Accuracy</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <button id="resetBtn">Reset App & Clear All Data</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

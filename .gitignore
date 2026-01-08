@@ -1,0 +1,7 @@
+﻿# Ignore common OS and shortcut files
+*.lnk
+Thumbs.db
+Desktop.ini
+node_modules/
+.env
+.DS_Store
